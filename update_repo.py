@@ -42,7 +42,8 @@ badges = '''<div align="center">
 </div>
 '''
 
-readme = re.sub(r'# Awesome-Gaussian-Splatting', '# Awesome-Gaussian-Splatting\n' + badges, readme)
+readme = re.sub(r'# Awesome-Gaussian-Splatting', '# Awesome-Gaussian-Splatting
+' + badges, readme)
 
 readme = readme.replace('chartrepos', 'chart?repos')
 readme = readme.replace('https://github.com/sindresorhus/awesome', 'https://github.com/ishandutta2007/Awesome-Awesome-Awesome')
@@ -64,23 +65,44 @@ readme = readme + star_history
 
 # Replace bullets with tables. This requires careful parsing. Let's do a simplified approach.
 # Section 1
-s1_bullets = '''| Concept | Year | Paper Link | Detail |\n|---------|------|------------|--------|\n| The Implicit Ray-Marching Era | 2020 | [Link](https://example.com) | [Detail](pages/1.md) |\n| The Explicit Rasterization Revolution | 2023 | [Link](https://example.com) | [Detail](pages/2.md) |\n'''
+s1_bullets = '''| Concept | Year | Paper Link | Detail |
+|---------|------|------------|--------|
+| The Implicit Ray-Marching Era | 2020 | [Link](https://example.com) | [Detail](pages/1.md) |
+| The Explicit Rasterization Revolution | 2023 | [Link](https://example.com) | [Detail](pages/2.md) |
+'''
 readme = re.sub(r'\* \*\*The Implicit Ray-Marching Era.*?texture details\.', s1_bullets, readme, flags=re.DOTALL)
 
 # Section 2
-s2_bullets = '''| Concept | Year | Paper Link | Detail |\n|---------|------|------------|--------|\n| The 3D Gaussian Formulation | 2023 | [Link](https://example.com) | [Detail](pages/3.md) |\n| Tile-Based Differentiable Rasterization | 2023 | [Link](https://example.com) | [Detail](pages/4.md) |\n'''
+s2_bullets = '''| Concept | Year | Paper Link | Detail |
+|---------|------|------------|--------|
+| The 3D Gaussian Formulation | 2023 | [Link](https://example.com) | [Detail](pages/3.md) |
+| Tile-Based Differentiable Rasterization | 2023 | [Link](https://example.com) | [Detail](pages/4.md) |
+'''
 readme = re.sub(r'- ### The 3D Gaussian Formulation.*?\(1 - \\alpha_j\)\$\$', s2_bullets, readme, flags=re.DOTALL)
 
 # Section 3
-s3_bullets = '''| Concept | Year | Paper Link | Detail |\n|---------|------|------------|--------|\n| Dynamic & 4D Gaussian Splatting | 2024 | [Link](https://example.com) | [Detail](pages/5.md) |\n| Compressed & Anchor-Based Splatting | 2024 | [Link](https://example.com) | [Detail](pages/6.md) |\n'''
+s3_bullets = '''| Concept | Year | Paper Link | Detail |
+|---------|------|------------|--------|
+| Dynamic & 4D Gaussian Splatting | 2024 | [Link](https://example.com) | [Detail](pages/5.md) |
+| Compressed & Anchor-Based Splatting | 2024 | [Link](https://example.com) | [Detail](pages/6.md) |
+'''
 readme = re.sub(r'\* \*\*Dynamic & 4D Gaussian Splatting.*?image quality\.', s3_bullets, readme, flags=re.DOTALL)
 
 # Section 4
-s4_bullets = '''| Concept | Year | Paper Link | Detail |\n|---------|------|------------|--------|\n| The Pop-corn Visual Artifact Boundary | 2024 | [Link](https://example.com) | [Detail](pages/7.md) |\n| The Disk Memory and VRAM Streaming Bottleneck | 2024 | [Link](https://example.com) | [Detail](pages/8.md) |\n'''
+s4_bullets = '''| Concept | Year | Paper Link | Detail |
+|---------|------|------------|--------|
+| The Pop-corn Visual Artifact Boundary | 2024 | [Link](https://example.com) | [Detail](pages/7.md) |
+| The Disk Memory and VRAM Streaming Bottleneck | 2024 | [Link](https://example.com) | [Detail](pages/8.md) |
+'''
 readme = re.sub(r'\* \*\*The Pop-corn Visual Artifact Boundary.*?environment states\.', s4_bullets, readme, flags=re.DOTALL)
 
 # Section 5
-s5_bullets = '''| Concept | Year | Paper Link | Detail |\n|---------|------|------------|--------|\n| Instant Text/Image-to-3D Asset Pipelines | 2024 | [Link](https://example.com) | [Detail](pages/9.md) |\n| Immersive XR Virtual Production | 2024 | [Link](https://example.com) | [Detail](pages/10.md) |\n| Autonomous Driving Simulation & Closed-Loop Testing | 2024 | [Link](https://example.com) | [Detail](pages/11.md) |\n'''
+s5_bullets = '''| Concept | Year | Paper Link | Detail |
+|---------|------|------------|--------|
+| Instant Text/Image-to-3D Asset Pipelines | 2024 | [Link](https://example.com) | [Detail](pages/9.md) |
+| Immersive XR Virtual Production | 2024 | [Link](https://example.com) | [Detail](pages/10.md) |
+| Autonomous Driving Simulation & Closed-Loop Testing | 2024 | [Link](https://example.com) | [Detail](pages/11.md) |
+'''
 readme = re.sub(r'\* \*\*Instant Text/Image-to-3D.*?virtual environment\.', s5_bullets, readme, flags=re.DOTALL)
 
 with open(readme_path, "w", encoding="utf-8") as f:
@@ -88,7 +110,13 @@ with open(readme_path, "w", encoding="utf-8") as f:
 
 # Generate 11 detail pages
 for i in range(1, 12):
-    page_content = f"# Detail {i}\\n\\n```mermaid\\ngraph TD;\\nA-->B;\\n```\\n"
+    page_content = f"# Detail {i}\
+\
+```mermaid\
+graph TD;\
+A-->B;\
+```\
+"
     with open(os.path.join(pages_dir, f"{i}.md"), "w", encoding="utf-8") as f:
         f.write(page_content)
 
