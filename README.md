@@ -11,9 +11,10 @@
 The implementation of novel view synthesis has transitioned from continuous neural coordinate representations to explicit point-based Gaussian rasterization, shifting toward modern highly compressed, dynamic, and generative generative pipelines.
 
 
+```mermaid
 [Neural Radiance Fields (Mildenhall, 2020)] ───> [3D Gaussian Splatting (Kerbl, 2023)] ───> [4D / Dynamic Splatting (2024)] ───> [Generative / Feed-forward 3DGS (2025+)]
 (Implicit Continuous Ray Marching) (Explicit Differentiable Rasterization) (Temporal Deformation & Velocity Fields) (Single-Image/Video Instant 3D Assets)
-
+```
 
 * **The Implicit Ray-Marching Era (NeRF, 2020–2022)**
   * *Concept:* Represented 3D scenes implicitly by training an MLP to map continuous $(x, y, z)$ spatial coordinates and viewing directions $(\theta, \phi)$ to volume density and RGB color.
@@ -50,6 +51,7 @@ Depending on environmental domains, memory overhead limitations, or temporal dim
   * *The Shift:* Baseline 3DGS creates millions of Gaussians, generating massive files (often 500MB to over 1GB per scene). Systems like Scaffold-GS introduce sparse anchor points that spawn local, low-overhead Gaussians on the fly. Coupled with vector quantization techniques, this reduces memory footprints by **10–20x** with minimal loss in image quality.
 
 
+```mermaid
 3D Structure-from-Motion (SfM) Data Density Scaling Front
 Low ┌─────────────────────────────────────────────────────────────
 │ • [Sparse Initial Point Cloud]
@@ -63,7 +65,7 @@ High └────────────────────────
 (e.g., 2D-GS / Scaffold-GS constraining Gaussians to thin manifests)
 Low (High Geometric Artifacts) High (Pruned & Ultra-Sharp Details)
 Total Point Density / Optimization Steps
-
+```
 
 ---
 
