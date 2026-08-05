@@ -29,15 +29,15 @@ The implementation of novel view synthesis has transitioned from continuous neur
 
 The core architecture of 3DGS parameterizes a scene through explicit spatial distributions optimized via differentiable rendering.
 
-### The 3D Gaussian Formulation
-Each 3D Gaussian is defined by a local probability density function centered at point $\mu$:
-$$G(x) = \exp\left(-\frac{1}{2}(x-\mu)^T \Sigma^{-1}(x-\mu)\right)$$
-To ensure the covariance matrix $\Sigma$ remains positive semi-definite during gradient descent optimization, it is decomposed into a scaling matrix $S$ and a rotation quaternion matrix $R$:
-$$\Sigma = R S S^T R^T$$
+- ### The 3D Gaussian Formulation
+	Each 3D Gaussian is defined by a local probability density function centered at point $\mu$:
+	$$G(x) = \exp\left(-\frac{1}{2}(x-\mu)^T \Sigma^{-1}(x-\mu)\right)$$
+	To ensure the covariance matrix $\Sigma$ remains positive semi-definite during gradient descent optimization, it is decomposed into a scaling matrix $S$ and a rotation quaternion matrix $R$:
+	$$\Sigma = R S S^T R^T$$
 
-### Tile-Based Differentiable Rasterization
-* **Mechanism:** The screen is split into $16 \times 16$ tiles. The rasterizer filters out Gaussians outside the view frustum, sorts them globally by depth per tile using Radix Sort, and accumulates blended color values for each pixel using standard $\alpha$-blending equations:
-$$C = \sum_{i \in N} c_i \alpha_i \prod_{j=1}^{i-1} (1 - \alpha_j)$$
+- ### Tile-Based Differentiable Rasterization
+	* **Mechanism:** The screen is split into $16 \times 16$ tiles. The rasterizer filters out Gaussians outside the view frustum, sorts them globally by depth per tile using Radix Sort, and accumulates blended color values for each pixel using standard $\alpha$-blending equations:
+	$$C = \sum_{i \in N} c_i \alpha_i \prod_{j=1}^{i-1} (1 - \alpha_j)$$
 
 ---
 
