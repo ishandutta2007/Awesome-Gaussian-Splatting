@@ -96,17 +96,6 @@ Deploying Gaussian Splatting systems into standard enterprise real-time graphics
 
 ---
 
-To advance this documentation repository, scaling architecture, or MLOps automation pipeline, consider exploring these adjacent development pathways:
-
-* Build a **Python script using NumPy** demonstrating how to calculate the 3D-to-2D projection Jacobian matrix for a specific camera projection matrix following the original EWA volume splatting formulation.
-* Generate a **comprehensive Markdown table** explicitly comparing NeRF, Instant-NGP, Baseline 3DGS, and 4D-GS across training convergence durations, rendering speeds, disk footprint sizes, and editing flexibility.
-
-***
-
-💡 **Proactive Repository Follow-Ups:** To assist with your documentation repository setup, let me know how you would like to proceed by choosing one of the options below:
-* I can provide a **complete Python code boilerplate using PyTorch** demonstrating how to compute the loss function combining L1 loss and structural similarity index measure (SSIM) for an optimized Gaussian image output.
-* I can generate a **Markdown matrix table** tracking the exact performance metrics (PSNR, SSIM, LPIPS, FPS) of the leading 3D Gaussian Splatting variants tested across the standard Blender and Tanks and Temples datasets.
-
 
 
 ##  Star History
